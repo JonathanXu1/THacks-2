@@ -1,4 +1,4 @@
-import serial
+#import serial
 from math import *
 #code to read output from arduino, preferably in oarg,omag,z(height)put
 #into variables,
