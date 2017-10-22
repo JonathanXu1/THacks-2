@@ -16,7 +16,7 @@ void setup() {
   // put your setup code here, to run once:
   base.attach(10);
   pull.attach(9);
-  pull.write(0);
+  pull.write(170);
 
   pinMode(trigPin, OUTPUT);
   pinMode(echoPin, INPUT);
@@ -24,22 +24,40 @@ void setup() {
 }
 
 void loop() {
+  Serial.println("Welcome to Mapsonic");
+  Serial.println("Hit any key to start...");
+  while(Serial.available() == 0){};
+  
   // put your main code here, to run repeatedly:
-  for (int x=0; x<=150; x+=5) {
+  for (int x=170; x>=70; x-=5) {
+    if (x%10 == 0){
       for (int y=0; y<=180; y+=5) {
-      base.write(y);
-      Serial.print("Base position: ");
-      Serial.println(y);
-      Serial.print("Arm position: ");
-      Serial.println(x);
-      Serial.print("Distance: ");
-      Serial.print(ping());
-      Serial.println("cm");
-      delay(250);
+        base.write(y);
+        Serial.print("Base position: ");
+        Serial.println(y);
+        Serial.print("Arm position: ");
+        Serial.println(x);
+        Serial.print("Distance: ");
+        ping();
+        delay(250);       
+      }
     }
-    pull.write(x);
+    else {
+      for (int y=180; y>=0; y-=5) {
+        base.write(y);
+        Serial.print("Base position: ");
+        Serial.println(y);
+        Serial.print("Arm position: ");
+        Serial.println(x);
+        Serial.print("Distance: ");
+        ping();
+        delay(250);
+      }
+    }
     delay(250);
+    pull.write(x);
   }
+  Serial.println("Job done!");
 }
 
 int ping() {
@@ -55,6 +73,14 @@ int ping() {
   // Calculating the distance
   distance= duration*0.034/2;
 
-  return distance;
+  if (distance > 10){
+    //Serial.println ("NO OBJECT");
+    Serial.print (distance);
+    Serial.println("cm");
+  }
+  else{
+    Serial.print (distance);
+    Serial.println("cm");
+  }
 }
 
