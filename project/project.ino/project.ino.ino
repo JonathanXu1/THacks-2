@@ -33,11 +33,11 @@ void loop() {
     if (x%10 == 0){
       for (int y=0; y<=180; y+=5) {
         base.write(y);
-        Serial.print("Distance: ");
+        //Serial.print("Distance: ");
         ping();
-        Serial.print("Base position: ");
+        //Serial.print("Base position: ");
         Serial.println(y);
-        Serial.print("Arm position: ");
+        //Serial.print("Arm position: ");
         Serial.println(x);
         
         delay(250);       
@@ -46,11 +46,11 @@ void loop() {
     else {
       for (int y=180; y>=0; y-=5) {
         base.write(y);
-        Serial.print("Distance: ");
+        //Serial.print("Distance: ");
         ping();
-        Serial.print("Base position: ");
+        //Serial.print("Base position: ");
         Serial.println(y);
-        Serial.print("Arm position: ");
+        //Serial.print("Arm position: ");
         Serial.println(x);
         delay(250);
       }
@@ -76,12 +76,12 @@ int ping() {
 
   if (distance > 10){
     //Serial.println ("NO OBJECT");
-    Serial.print (distance);
-    Serial.println("cm");
+    Serial.println (distance);
+    //Serial.println("cm");
   }
   else{
-    Serial.print (distance);
-    Serial.println("cm");
+    Serial.println (distance);
+    //Serial.println("cm");
   }
 }
 

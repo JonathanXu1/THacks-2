@@ -28,7 +28,7 @@ while halt == False:
             y_values[counter] = mag_data * sin(radians(angle_data))
             
         elif switch == 2:
-            z_values[counter] =
+            z_values[counter] = evaluate()
 
         
         if switch == 2:
