@@ -16,8 +16,8 @@ void setup() {
   pinMode(13, OUTPUT);
   digitalWrite(13, HIGH);
 
-  pinMode(trigPin, OUTPUT);
-  pinMode(echoPin, INPUT);
+  pinMode(trigPin, 7);
+  pinMode(echoPin, 6);
   Serial.begin(9600);
 }
 
