@@ -7,7 +7,7 @@ switch = 0
 halt = False
 
 # Serial setup
-ser = serial.Serial('',9600, timeout = 1)
+ser = serial.Serial('COM5',9600, timeout = 1)
 
 # Function for withdrawing a line of data from Arduino
 def evaluate():
@@ -28,13 +28,21 @@ while halt == False:
         elif switch == 2:
             z_values[counter] = evaluate()
  
-        if counter = 480:
+        if counter == 480:
             halt = True
         elif switch == 2:
+            z_data = evaluate()
+            z_values[counter] = 45 - sqrt((400+576-(2*20*24*cos(radians(z_data))))) 
+
+        
+        if switch == 2:
             switch = 0
             counter =+ 1
         else:
             switch =+ 1
+
+        if counter > 480:
+            halt = True
 
 # Plotting on 3d Graph
 
