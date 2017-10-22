@@ -5,24 +5,26 @@
 */
 
 #include<Servo.h>
-Servo platform;
+Servo base;
+Servo pull;
 
 void setup() {
   // put your setup code here, to run once:
-  platform.attach(10);
-  
-  pinMode(13, OUTPUT);
-  digitalWrite(13, HIGH);
+  base.attach(10);
+  pull.attach(9);
+  pull.write(180);
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
-  for (int x=0; x<=180; x+=5) {
-    platform.write(x);
-    delay(250);
-  }
-  for (int x=180; x>=0; x-=5) {
-    platform.write(x);
+  for (int x=75; x<=180; x+=5) {
+      for (int y=0; y<=180; y+=5) {
+      base.write(y);
+      //
+      delay(250);
+    }
+    
+    pull.write(x);
     delay(250);
   }
 }
