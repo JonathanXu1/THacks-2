@@ -3,14 +3,11 @@
 */
 
 #include<Servo.h>
-#include <NewPing.h>
 Servo base;
 Servo pull;
 
 const int trigPin = 7;
 const int echoPin = 6;
-const int maxDistance = 20;
-NewPing sonar(trigPin, echoPin);
 
 long duration;
 long distance;
@@ -20,7 +17,9 @@ void setup() {
   base.attach(10);
   pull.attach(9);
   pull.write(170);
-  
+
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
   Serial.begin(9600);
 }
 
@@ -34,24 +33,24 @@ void loop() {
     if (x%10 == 0){
       for (int y=0; y<=180; y+=5) {
         base.write(y);
-        Serial.print("Distance: ");
-        Serial.println(sonar.convert_cm(sonar.ping()));
         Serial.print("Base position: ");
         Serial.println(y);
         Serial.print("Arm position: ");
         Serial.println(x-80);
+        Serial.print("Distance: ");
+        ping();
         delay(250);       
       }
     }
     else {
       for (int y=180; y>=0; y-=5) {
         base.write(y);
-        Serial.print("Distance: ");
-        Serial.println(sonar.convert_cm(sonar.ping()));
         Serial.print("Base position: ");
         Serial.println(y);
         Serial.print("Arm position: ");
         Serial.println(x-80);
+        Serial.print("Distance: ");
+        ping();
         delay(250);
       }
     }
