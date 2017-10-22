@@ -17,10 +17,8 @@ def evaluate():
 
 
 while halt == False:
-    
-
         if switch == 0:       
-            mag_data = evaluate()
+            mag_data = 9.5 - evaluate()
         elif switch == 1:
             angle_data = evaluate()
             
@@ -28,10 +26,11 @@ while halt == False:
             y_values[counter] = mag_data * sin(radians(angle_data))
             
         elif switch == 2:
-            z_values[counter] =
-
-        
-        if switch == 2:
+            z_values[counter] = evaluate()
+ 
+        if counter = 480:
+            halt = True
+        elif switch == 2:
             switch = 0
             counter =+ 1
         else:
