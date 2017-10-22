@@ -16,27 +16,22 @@ def evaluate():
     return int(data)
 
 
-while halt = False:
+while halt == False:
     
-        temp_data = evaluate()
 
-        if switch = 0:       
-            dist_data = evaluate()
-        elif switch = 1:
-            angle_dat = evaluate()
-
-            # - - - - - - - - - - - -
-            # Spooky scary mathematics
-            # - - - - - - - - - - - -
+        if switch == 0:       
+            mag_data = evaluate()
+        elif switch == 1:
+            angle_data = evaluate()
             
-            x_values[counter] =
-            y_values[counter] =
+            x_values[counter] = mag_data * cos(radians(angle_data))
+            y_values[counter] = mag_data * sin(radians(angle_data))
             
-        elif switch = 2:
+        elif switch == 2:
             z_values[counter] =
 
         
-        if switch = 2:
+        if switch == 2:
             switch = 0
             counter =+ 1
         else:
