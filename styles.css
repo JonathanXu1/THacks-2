@@ -1,0 +1,30 @@
+body {
+  margin: 0;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.fill {
+  flex-grow: 1;
+}
+
+.cust {
+  width: 50vh;
+}
+
+#pattern {
+  background-image: url("pattern10.jpg");
+}
+
+#main {
+  height: 100vh;
+}
+
+h1 {
+  font-family: 'Raleway', sans-serif;
+  color: white;
+}
