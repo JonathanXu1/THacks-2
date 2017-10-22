@@ -1,3 +1,4 @@
+import serial
 from math import *
 #code to read output from arduino, preferably in oarg,omag,z(height)put
 #into variables,
@@ -10,7 +11,7 @@ cartesians= []
 for entry in pointlist:
     entry['x'] = entry['mag'] * cos(radians(entry['arg']))
     entry['y'] = entry['mag'] * sin(radians(entry['arg']))
-    #luckily the z value is constant
+    #luckily the z value is easy to find
 #each cartesian point is given as a list [x,y,z]
 for entry in pointlist:
     cartesians.append([entry['x'],entry['y'],entry['z']])
