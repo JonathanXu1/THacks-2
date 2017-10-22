@@ -36,7 +36,7 @@ void loop() {
         Serial.print("Base position: ");
         Serial.println(y);
         Serial.print("Arm position: ");
-        Serial.println(x);
+        Serial.println(x-80);
         Serial.print("Distance: ");
         ping();
         delay(250);       
@@ -48,7 +48,7 @@ void loop() {
         Serial.print("Base position: ");
         Serial.println(y);
         Serial.print("Arm position: ");
-        Serial.println(x);
+        Serial.println(x-80);
         Serial.print("Distance: ");
         ping();
         delay(250);
